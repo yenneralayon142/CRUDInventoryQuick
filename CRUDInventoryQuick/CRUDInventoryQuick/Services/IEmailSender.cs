@@ -1,6 +1,7 @@
 ﻿namespace CRUDInventoryQuick.Services
 {
-    public class IEmailSender
+    public interface ISmsSender
     {
+        Task SendSmsAsync(string number, string message);
     }
 }
