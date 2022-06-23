@@ -34,10 +34,26 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Empleados</a>
-                        </li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AspNetRole" asp-action="Index">Roles</a>
 
-                  
+                        </li> 
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categoria</a>
+                        </li> 
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Precio" asp-action="Index">Precio</a>
+                        </li> 
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Producto" asp-action="Index">Producto</a>
+                        </li> 
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Subcategoria" asp-action="Index">Subcategoria</a>
+                        </li> 
+
 
                         @if (User.IsInRole("Administrador "))
                         {
