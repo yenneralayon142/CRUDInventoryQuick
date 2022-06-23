@@ -3,43 +3,42 @@ using Microsoft.EntityFrameworkCore;
 using CRUDInventoryQuick.Data;
 using CRUDInventoryQuick.Models;
 
+
+
 namespace CRUDInventoryQuick.Controllers
 {
-    public class EmployeesController : Controller
+
+    public class ProductosController : Controller
     {
+
         private readonly ApplicationDbContext _context;
 
-        public EmployeesController(ApplicationDbContext context)
+       public ProductosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: EmployeesController
         public IActionResult Index()
         {
-            // Consultando la colección de trabajadores.
-            IEnumerable<Employee> colEmployees = _context.Employees.Where(s => s.Estate == true); // Código refactorizado para retornar sólo los empleados activos
-            return View(colEmployees);
-
-            // select * Empleados where state = true
+            IEnumerable<Producto> colProductos = _context.Productos.Where(s => s.Estado == true);
+            return View(colProductos);
         }
 
-        // GET: Empleadoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Employees == null)
+            if (id == null || _context.Productos == null)
             {
                 return NotFound();
             }
 
-            var empleado = await _context.Employees
+            var producto = await _context.Productos
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (empleado == null)
+            if (producto == null)
             {
                 return NotFound();
             }
 
-            return View(empleado);
+            return View(producto);
         }
 
         // GET: EmployeesController/Create
@@ -51,57 +50,57 @@ namespace CRUDInventoryQuick.Controllers
         // POST: EmployeesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Employee employee)
+        public ActionResult Create(Producto producto)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _context.Employees.Add(employee);
+                    _context.Productos.Add (producto);
                     _context.SaveChanges();
-                    TempData["ResultOk"] = "Dato agregado exitosamente";
+                    TempData["ResultOk"] = "Dato agregado satisactoriamente";
                 }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View(employee);
+                return View(producto);
             }
         }
 
         // GET: EmployeesController/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null || _context.Employees == null)
+            if (id == null || _context.Productos == null)
             {
                 return NotFound();
             }
-            var employeefromdb = _context.Employees.Find(id);
+            var productofromdb = _context.Productos.Find(id);
 
-            if (employeefromdb == null)
+            if (productofromdb == null)
             {
                 return NotFound();
             }
-            return View(employeefromdb);
+            return View(productofromdb);
         }
 
 
         // POST: EmployeesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Employee employee)
+        public ActionResult Edit(Producto producto)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(employee);
+                    _context.Update(producto);
                     _context.SaveChanges();
-                    TempData["ResultOk"] = "Dato actualizado exitosamente";
+                    TempData["ResultOk"] = "Dato actualizado satisfactoriamente";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.Id))
+                    if (!ProductoExists(producto.Id))
                     {
                         return NotFound();
                     }
@@ -112,12 +111,12 @@ namespace CRUDInventoryQuick.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(employee);
+            return View(producto);
         }
 
-        private bool EmployeeExists(int id)
+        private bool ProductoExists(int id)
         {
-            return (_context.Employees?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Productos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         // GET: EmployeesController/Delete/5
@@ -127,13 +126,13 @@ namespace CRUDInventoryQuick.Controllers
             {
                 return NotFound();
             }
-            var employeefromdb = _context.Employees.Find(id);
+            var productofromdb = _context.Productos.Find(id);
 
-            if (employeefromdb == null)
+            if (productofromdb == null)
             {
                 return NotFound();
             }
-            return View(employeefromdb);
+            return View(productofromdb);
         }
 
         // POST: EmployeesController/Delete/5
@@ -141,20 +140,22 @@ namespace CRUDInventoryQuick.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            var employeefromdb = _context.Employees.Find(id);
+            var productofromdb = _context.Productos.Find(id);
 
-            if (employeefromdb == null)
+            if (productofromdb == null)
             {
                 return NotFound();
             }
             // _context.Employees.Remove(employeefromdb);   // Refactorizado para inactivar el usuario. No eliminarlo.
-            employeefromdb.Estate = false;
-            _context.Employees.Update(employeefromdb);
+            productofromdb.Estado = false;
+            _context.Productos.Update(productofromdb);
             _context.SaveChanges();
-            TempData["ResultOk"] = "Dato eliminado exitosamente";
+            TempData["ResultOk"] = "Dato eliminado satisfactoriamente";
             return RedirectToAction(nameof(Index));
 
         }
+
+
 
     }
 }

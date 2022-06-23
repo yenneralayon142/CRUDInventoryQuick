@@ -71,14 +71,11 @@ namespace CRUDInventoryQuick.Controllers
                     Apellidos = registroViewModel.Apellidos,
                     UserName = registroViewModel.Email,
                     Email = registroViewModel.Email,
-                    URL = registroViewModel.URL,
-                    CodigoPais = registroViewModel.CodigoPais,
-                    Pais = registroViewModel.Pais,
                     PhoneNumber = registroViewModel.PhoneNumber,
-                    Ciudad = registroViewModel.Ciudad,
                     Direccion = registroViewModel.Direccion,
                     FechaNacimiento = registroViewModel.FechaNacimiento,
-                    Estado = registroViewModel.Estado
+                    AccesoDenegado = registroViewModel.AccesoDenegado
+          
                 };
 
                 var resultado = await _userManager.CreateAsync(usuario, registroViewModel.Password); // Manejador de usuarios del Framework de Identity
