@@ -18,6 +18,8 @@ namespace CRUDInventoryQuick.Models
         public bool Estado { get; set; } = true;
         public string? URL { get; set; }
 
+        public bool AccesoDenegado { get; set; }
+
         [NotMapped]
         [Display(Name = "Rol para el Usuario")]
         public string IdRol { get; set; }

@@ -13,5 +13,7 @@ namespace CRUDInventoryQuick.Data
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<UsuarioRegistrado> UsuarioRegistrado { get; set; }
+
+        public DbSet <Producto> Productos { get; set; }
     }
 }
