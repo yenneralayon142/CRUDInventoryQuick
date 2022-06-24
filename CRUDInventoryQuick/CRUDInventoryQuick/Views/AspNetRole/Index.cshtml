@@ -8,8 +8,9 @@
 
 
 <p>
-    <a asp-action="Create">Agregar Rol</a>
+    <a asp-action="Create" class="btn btn-sm btn-info">Agregar Rol</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -26,9 +27,9 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AspNetRoleId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.AspNetRoleId">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.AspNetRoleId">Eliminar</a>
+                <a asp-action="Edit" asp-route-id="@item.AspNetRoleId" class="btn btn-sm btn-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.AspNetRoleId" class="btn btn-sm btn-success" >Detalles </a> |
+                <a asp-action="Delete" asp-route-id="@item.AspNetRoleId" class="btn btn-sm btn-danger">Eliminar </a>
             </td>
         </tr>
 }
