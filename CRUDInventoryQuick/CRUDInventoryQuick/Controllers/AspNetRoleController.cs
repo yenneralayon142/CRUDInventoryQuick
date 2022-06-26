@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CRUDInventoryQuick.Datos;
 using CRUDInventoryQuick.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace CRUDInventoryQuick.Controllers
 {
     public class AspNetRoleController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         public AspNetRoleController(ApplicationDbContext context)
         {
             _context = context;
+            
         }
 
         // GET: AspNetRole
