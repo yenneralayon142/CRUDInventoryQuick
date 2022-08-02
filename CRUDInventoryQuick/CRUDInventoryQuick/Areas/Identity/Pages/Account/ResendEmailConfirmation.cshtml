@@ -1,11 +1,11 @@
 ﻿@page
 @model ResendEmailConfirmationModel
 @{
-    ViewData["Title"] = "Resend email confirmation";
+    ViewData["Title"] = "Reeviar correo de confirmacion";
 }
 
 <h1>@ViewData["Title"]</h1>
-<h2>Enter your email.</h2>
+<h2>Ingresar tu correo</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,8 +15,8 @@
                 <input asp-for="Input.Email" class="form-control" aria-required="true" />
                 <label asp-for="Input.Email" class="form-label"></label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Resend</button>
+            </div><br>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Reenviar</button>
         </form>
     </div>
 </div>

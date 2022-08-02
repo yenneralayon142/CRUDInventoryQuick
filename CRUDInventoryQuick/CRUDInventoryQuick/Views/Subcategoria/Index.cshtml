@@ -8,7 +8,7 @@
 
 
 <p>
-    <a asp-action="Create"  class="btn btn-sm btn-info">Agregar nueva Subcategoria</a>
+    <a asp-action="Create"  class="btn btn-sm btn-info"><i class="bi bi-bookmark-plus"></i>Agregar nueva Subcategoria</a>
 </p>
 <table class="table">
     <thead>
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.CATEGORIA_Categoria.CategoriaId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SubcategoriaId" class="btn btn-sm btn-primary">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.SubcategoriaId"  class="btn btn-sm btn-success">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.SubcategoriaId"  class="btn btn-sm btn-danger">Eliminar</a>
+                <a asp-action="Edit" asp-route-id="@item.SubcategoriaId" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i>Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.SubcategoriaId"  class="btn btn-sm btn-success"><i class="bi bi-bar-chart"></i>Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.SubcategoriaId"  class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Eliminar</a>
             </td>
         </tr>
 }
